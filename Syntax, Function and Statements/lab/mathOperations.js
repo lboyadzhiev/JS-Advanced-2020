@@ -9,8 +9,18 @@ The input comes as two numbers and a string argument passed to your function.
 The output should be printed on the console.
 */
 
-function solve(x, y, operator) {
-   return eval(`${x}${operator}${y}`);
+// function solve(x, y, operator) {
+//    return eval(`${x}${operator}${y}`);
+// }
+
+function solve(...params) {
+   let operator  = params.pop();
+
+   return params
+      .reduce (
+         (a, b) => eval(`${a}${operator}${b}`),
+         params.shift()
+      );
 }
 
-console.log(solve(5, 6, '+'));
+console.log(solve(5, 6, 7, 8, '+'));
