@@ -18,7 +18,7 @@ function solve(...params) {
 
    return params
       .reduce (
-         (a, b) => eval(`${a}${operator}${b}`),
+         (a, b) => eval(`${a} ${operator} ${b}`),
          params.shift()
       );
 }
