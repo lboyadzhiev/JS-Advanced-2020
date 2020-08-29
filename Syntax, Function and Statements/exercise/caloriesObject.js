@@ -6,7 +6,21 @@ The output should be printed on the console.
 */
 
 function solve(input) {
+   let object = {};
+   let name = '';
+   let calories = 0;
+   for(let i = 0; i < input.length; i++) {
+      
+      if (i === 0 || i % 2 === 0) {
+         name = input[i];
+      }
+      if (i % 2 !== 0) {
+         calories = Number(input[i]);
+         object[name] = calories;
+      }
+   }
 
+   console.log(object);
 }
 
 solve(['Yoghurt', 48, 'Rise', 138, 'Apple', 52]);
