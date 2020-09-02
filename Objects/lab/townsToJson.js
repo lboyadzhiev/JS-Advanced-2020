@@ -9,33 +9,38 @@ Output
 */
 
 
-
-const isNotEmptyString = x => x !== '';
-const trimMyStrings = x => x.trim();
-const parseIfNumber = x => Number(x) ? Math.floor(Number(x) * 100) / 100 : x
-
-function extractData(str) {
-   return str
-      .split('|')
-      .filter(isNotEmptyString)
-      .map(trimMyStrings)
-      .map(parseIfNumber)
-}
-
-
-
-
 function solve(data) {
-   let keys = extractData(data.shift());
-   return data
-      .map(extractData)
-      .map(x => x.reduce((res, val, i) => {
-         res[keys[i]] = val;
-         return res;
-      }, {}));
+   let keys = [];
+   let values = [];
+
+   let keysToBe  = data
+      .shift()
+      .split('|');
+
+   for (let i = 0; i < keysToBe.length; i++) {
+      if (keysToBe[i] !== '') {
+         keys.push(keysToBe[i].trim());
+      }
+   }
+
+   for (let line of data) {
+      let valueToBe = line.split('|')
+      let array = [];
+      for(let i = 0; i < valueToBe.length; i++) {
+         if(valueToBe[i] !== '') {
+            
+            array.push(valueToBe[i]);
+         }
+      }
+
+      values.push(array);
+   }
+   console.log(values);
+
+   
 }
 
-console.log(   solve(['| Town | Latitude | Longitude |',
-'| Sofia | 42.696552 | 23.32601 |',
-'| Beijing | 39.913818 | 116.363625 |']))
+solve(['| Town | Latitude | Longitude |',
+   '| Sofia | 42.696552 | 23.32601 |',
+   '| Beijing | 39.913818 | 116.363625 |'])
 
