@@ -8,39 +8,81 @@ Output
     • Latitude and longitude must be parsed to numbers, and represented till the second digit after the decimal point!
 */
 
+const isNotEmptyString = x => x !== '';
+const trimMyString = x => x.trim();
+const parseIfNum = x => Number(x) ? Math.ceil(Number(x)) : x;
 
+function extractData(str) {
+   return str
+      .split('|')
+      .filter(isNotEmptyString)
+      .map(trimMyString)
+      .map(parseIfNum);
+}
 function solve(data) {
-   let keys = [];
-   let values = [];
+   
+   let keys = extractData(data[0]);
 
-   let keysToBe  = data
-      .shift()
-      .split('|');
+   // let keys = [];
+   // let keysToBe = data[0].split('|');
 
-   for (let i = 0; i < keysToBe.length; i++) {
-      if (keysToBe[i] !== '') {
-         keys.push(keysToBe[i].trim());
-      }
-   }
-
-   for (let line of data) {
-      let valueToBe = line.split('|')
-      let array = [];
-      for(let i = 0; i < valueToBe.length; i++) {
-         if(valueToBe[i] !== '') {
-            
-            array.push(valueToBe[i]);
-         }
-      }
-
-      values.push(array);
-   }
-   console.log(values);
+   // for (let i = 0; i < keysToBe.length; i++) {
+   //    if (keysToBe[i] !== '') {
+   //       keys.push(keysToBe[i].trim());
+   //    }
+   // }
 
    
+   return data
+      .slice(1)
+      .map(extractData)
+      .map(x => x.reduce((res, val, i) => {
+         res[keys[i]] = val;
+         return res;
+      }, {}))
+      .map(x => JSON.stringify(x));
+
+
+   // let values = [];
+   // for (let i = 1; i < data.length; i++) {
+   //    let row = data[i].split('|');
+   //    let valuesToBe = [];
+   //    for (let j = 0; j < row.length; j++) {
+   //       if (row[j] !== '') {
+   //          let value = Number(row[j]);
+   //          if (isNaN(value)) {
+   //             value = row[j].trim();
+   //          } else {
+   //             value = Math.ceil(value * 100) / 100;
+   //          }
+   //          valuesToBe.push(value);
+   //       }
+   //    }
+   //    values.push(valuesToBe);
+   // }
+
+   // let result = [];
+
+   // for (let i = 0; i < values.length; i++) {
+   //    let obj = {};
+   //    for (let j = 0; j < keys.length; j++) {
+   //       obj[keys[j]] = values[i][j];
+   //    }
+
+   //    result.push(obj)
+   // }
+
+   // let printArr = [];
+
+   // for(let line of result) {
+   //    let print = JSON.stringify(line);
+   //    printArr.push(print);
+   // }
+
+   // return printArr
 }
 
-solve(['| Town | Latitude | Longitude |',
-   '| Sofia | 42.696552 | 23.32601 |',
-   '| Beijing | 39.913818 | 116.363625 |'])
+console.log(solve(['| Town | Latitude | Longitude |',
+'| Veliko Turnovo | 43.0757 | 25.6172 |',
+'| Monatevideo | 34.50 | 56.11 |']))
 
