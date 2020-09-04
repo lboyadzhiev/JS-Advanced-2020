@@ -19,9 +19,19 @@ function extractData(str) {
       .map(trimMyString)
       .map(parseIfNum);
 }
+
 function solve(data) {
-   
+
    let keys = extractData(data[0]);
+
+   return data
+   .slice(1)
+   .map(extractData)
+   .map(x => x.reduce((res, val, i) => {
+      res[keys[i]] = val;
+      return res;
+   }, {}))
+   .map(x => JSON.stringify(x));
 
    // let keys = [];
    // let keysToBe = data[0].split('|');
@@ -31,17 +41,6 @@ function solve(data) {
    //       keys.push(keysToBe[i].trim());
    //    }
    // }
-
-   
-   return data
-      .slice(1)
-      .map(extractData)
-      .map(x => x.reduce((res, val, i) => {
-         res[keys[i]] = val;
-         return res;
-      }, {}))
-      .map(x => JSON.stringify(x));
-
 
    // let values = [];
    // for (let i = 1; i < data.length; i++) {
