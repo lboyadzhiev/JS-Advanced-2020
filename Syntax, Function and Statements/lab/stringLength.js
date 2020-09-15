@@ -24,4 +24,4 @@ function solve(...params) {
    return [sum, avrg].join('\n')
 }
 
-console.log(solve('chocolate', 'ice cream', 'cake'));
+console.log(solve('chocolate', 'ice cream'));

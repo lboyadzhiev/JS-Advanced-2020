@@ -24,9 +24,18 @@ function solve(input) {
    let x = Number(input[0]);
    let y = input[1];
 
-   if(y === limitMap[])
+   let overSpeed = x - limitMap[y];
+   let message = '';
 
-   console.log(y)
+   if (overSpeed > 0 && overSpeed <= 20) {
+       message = 'speeding';
+   } else if (overSpeed > 20 && overSpeed <= 40) {
+       message = 'excessive speeding';
+   } else if (overSpeed > 40) {
+       message = 'reckless driving';
+   }
+
+   return message;
 }
 
-solve([40, 'city']);
+console.log(solve([160, 'city']));
