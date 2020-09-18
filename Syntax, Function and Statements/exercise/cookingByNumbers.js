@@ -10,58 +10,57 @@ The input comes as an array of 6 string elements. The first element is the start
 The output should be printed on the console
 */
 
-function solve(input) {
-   let num = Number(input[0])
-   let commands = input.slice(1,);
-   let result = [];
+// function solve(input) {
+//    let num = Number(input[0])
+//    let commands = input.slice(1,);
+//    let result = [];
 
 
 
-   commands.forEach(el => {
-      if(el === 'chop') {
-         num = num / 2;
-      } else if(el === 'dice') {
-         num = Math.sqrt(num);
-      } else if(el === 'spice') {
-         num = num + 1;
-      } else if(el === 'bake') {
-         num = num * 3;
-      } else if(el === 'fillet') {
-         num = num - num * 0.20;
-      }
-      result.push(num);
-   });
-
-   return result.join('\n');
-}
-
-// function solve(params) {
-//    let num = Number(params.shift());
-
-//    let commandsMap = {
-//       'chop': x => x / 2,
-//       'dice': x => Math.sqrt(x),
-//       'spice': x => x + 1,
-//       'bake': x => x * 3,
-//       'fillet': x => x = x - x * 0.20
-//    };
-
-//    function calculate(operation, num) {
-//       num = operation(num);
-
-//       return num;
-//    }
-//    let arr = [];
-   
-//    params.forEach(el => {
-//       let result = calculate(commandsMap[el], num);
-//       num = result;
-//       arr.push(num);
+//    commands.forEach(el => {
+//       if(el === 'chop') {
+//          num = num / 2;
+//       } else if(el === 'dice') {
+//          num = Math.sqrt(num);
+//       } else if(el === 'spice') {
+//          num = num + 1;
+//       } else if(el === 'bake') {
+//          num = num * 3;
+//       } else if(el === 'fillet') {
+//          num = num - num * 0.20;
+//       }
+//       result.push(num);
 //    });
 
-//    return arr;
-
+//    return result.join('\n');
 // }
+
+function solve(params) {
+   let commandsMap = {
+      'chop': x => x / 2,
+      'dice': x => Math.sqrt(x),
+      'spice': x => x + 1,
+      'bake': x => x * 3,
+      'fillet': x => x = x - x * 0.20
+   };
+
+   let num = Number(params.shift());
+   let arr = [];
+   
+   function calculate(operation, num) {
+      return operation(num);
+   }
+
+
+   params.forEach(el => {
+      let result = calculate(commandsMap[el], num);
+      num = result;
+      arr.push(num);
+   });
+
+   return arr;
+
+}
 
 console.log(solve(
    ['9', 'dice', 'spice', 'chop', 'bake', 'fillet']
