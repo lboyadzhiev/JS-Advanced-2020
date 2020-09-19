@@ -5,22 +5,33 @@ The input comes as an array of string elements.
 The output should be printed on the console.
 */
 
-function solve(input) {
-   let object = {};
-   let name = '';
-   let calories = 0;
-   for(let i = 0; i < input.length; i++) {
-      
-      if (i === 0 || i % 2 === 0) {
-         name = input[i];
-      }
-      if (i % 2 !== 0) {
-         calories = Number(input[i]);
-         object[name] = calories;
-      }
-   }
 
-   console.log(object);
+function solve(input) {
+   return input
+      .reduce((a, b, i, input) => {
+         if(i % 2 !== 0) {
+            a[input[i-1]] = Number(b);
+         }
+         return a;
+      }, {});
 }
 
-solve(['Yoghurt', 48, 'Rise', 138, 'Apple', 52]);
+// function solve(input) {
+//    let object = {};
+//    let name = '';
+//    let calories = 0;
+//    for(let i = 0; i < input.length; i++) {
+      
+//       if (i === 0 || i % 2 === 0) {
+//          name = input[i];
+//       }
+//       if (i % 2 !== 0) {
+//          calories = Number(input[i]);
+//          object[name] = calories;
+//       }
+//    }
+
+//    console.log(object);
+// }
+
+console.log(solve(['Yoghurt', 48, 'Rise', 138, 'Apple', 52]));
