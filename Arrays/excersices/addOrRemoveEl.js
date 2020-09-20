@@ -10,7 +10,6 @@ The output is the array itself, with each element printed on a new line. In case
 
 function solve(params) {
    let currentNum = 1;
-   let result = 0;
    let array = [];
 
    params.forEach(el => {
@@ -34,10 +33,7 @@ function solve(params) {
 console.log(
    solve(
       [
-        
-          
-         'remove', 
-         
+         'remove',   
       ]
    )
 )
