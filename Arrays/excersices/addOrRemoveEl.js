@@ -9,16 +9,35 @@ The output is the array itself, with each element printed on a new line. In case
 */
 
 function solve(params) {
+   let currentNum = 1;
+   let result = 0;
+   let array = [];
+
+   params.forEach(el => {
+      if(el === 'add') {
+         array.push(currentNum);
+         currentNum++;
+      } else if (el === 'remove') {
+         array.pop();
+         currentNum++;
+      }
+   });
+
+   if(array.length > 0) {
+      return array.join('\n');
+   } else {
+      return 'Empty';
+   }
    
 }
 
 console.log(
    solve(
       [
-         'add',
-         'add',
-         'add',
-         'add'
+        
+          
+         'remove', 
+         
       ]
    )
 )
