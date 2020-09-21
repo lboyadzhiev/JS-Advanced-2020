@@ -5,28 +5,43 @@ The input comes as an array of numbers.
 The output is the processed array after the filtration, which should be a non-decreasing subsequence. Each element should be printed on a new line.
 */
 
+
 function solve(params) {
-   let biggestNum = 0;
-   let result = [];
-
-   for(let i = 0; i < params.length; i++) {
-      if(params[i] >= biggestNum) {
-         biggestNum = params[i];
-
-         result.push(biggestNum);
-      }
-   }
-   
-   return result.join('\n');
+   return params
+      .reduce((a, b, i, arr) => {
+         if(b >= Math.max(...a)) {
+            a.push(b);
+         }
+         return a;
+      }, [])
+      .join('\n');
 }
+
+// function solve(params) {
+//    let biggestNum = 0;
+//    let result = [];
+
+//    for(let i = 0; i < params.length; i++) {
+//       if(params[i] >= biggestNum) {
+//          biggestNum = params[i];
+
+//          result.push(biggestNum);
+//       }
+//    }
+   
+//    return result.join('\n');
+// }
 
 console.log(solve(
    [
-      20, 
+      1, 
+      3, 
+      8, 
+      4, 
+      10, 
+      12, 
       3, 
       2, 
-      15,
-      6, 
-      1
+      24
    ]
 ))
