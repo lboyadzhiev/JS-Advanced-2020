@@ -1,42 +1,30 @@
-// let sum = (a, b) => a + b;
-
-// function calculate(operation, a, b) {
-//    return operation(a, b);
-// }
-
-// let result = calculate(sum, 5, 10);
-
-// console.log(result)
+// Filter 
 
 
-// function solve(params) {
-//    let num = Number(params.shift());
+// Filtering out all small values
 
-//    let commandsMap = {
-//       'chop': x => x / 2,
-//       'dice': x => Math.sqrt(x),
-//       'spice': x => x + 1,
-//       'bake': x => x * 3,
-//       'fillet': x => x = x - x * 0.20
-//    };
+let arr = [12, 5, 8, 130, 44, -3, -2, -1, 0, 11, 12, 13, 14, 4, 6];
 
-//    function calculate(operation, num) {
-//       num = operation(num);
+function isBigEnough(value) {
+   return value >= 10;
+}
 
-//       return num;
-//    }
-//    let arr = [];
-   
-//    params.forEach(el => {
-//       let result = calculate(commandsMap[el], num);
-//       num = result;
-//       arr.push(num);
-//    });
+// Find all prime numbers
 
-//    return arr;
+function isPrime(num) {
+   for(let i = 0; i > num; i++) {
+      if(num % i == 0) {
+         return false;
+      }
+   } 
 
-// }
+   return num > 1;
+}
 
-// console.log(solve(['9', 'dice', 'spice', 'chop', 'bake', 'fillet']))
+
+
+let filtered = arr.filter(isPrime);
+
+console.log(filtered)
 
 
