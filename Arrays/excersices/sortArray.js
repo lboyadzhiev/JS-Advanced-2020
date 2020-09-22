@@ -6,13 +6,19 @@ The output is the ordered array of strings.
 */
 
 function solve(params) {
-   
+   return [...params]
+      .sort((a, b) => {
+         return a.length - b.length || a.localeCompare(b);
+      })
+      .join('\n');
 }
 
 console.log(solve(
    [
-      'alpha',
-      'beta',
-      'gamma'
+      'Isacc', 
+      'Theodor', 
+      'Jack', 
+      'Harrison', 
+      'George'
    ]
 ))
