@@ -4,9 +4,19 @@ Write a program that calculates the difference between the sum of the even and t
 */
 
 function solve(input) {
-   
+    let even = x => x % 2 === 0;
+    let odd = x => x % 2 != 0;
+
+    let oddSum = input
+        .filter(odd)
+        .reduce((a, b) => a + b, 0);
+    let evenSum = input
+        .filter(even)
+        .reduce((a, b) => a + b, 0);
+
+    return evenSum - oddSum;
 }
 
 console.log(solve(
-   [1,2,3,4,5,6]
+    [3,5,7,9]
 ));
