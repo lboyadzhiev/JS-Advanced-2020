@@ -8,27 +8,30 @@ Output
     • Latitude and longitude must be parsed to numbers, and represented till the second digit after the decimal point!
 */
 
+
 function solve(input) {
 
-   function extractData(str) {
-      return str
-         .split('|')
-         .filter(x => x.length > 0)
-         .map(x => x.trim())
-         .map(x => Number(x) ? Math.ceil(Number(x)) : x);
-         
-   }
+   let data = input.map(x => x
+      .split('|')
+      .filter(x => x.length > 0)
+      .map(x => x.trim())
+   )
 
-   let keys = extractData(input[0]);
+   let keys = data.shift();
 
-   return input
-      .slice(1)
-      .map(extractData)
-      .map(x => x.reduce((res, val, i) => {
-         res[keys[i]] = val;
-         return res;
-      }, {}))
-      .map(x => JSON.stringify(x));
+   let result = [];
+
+   data.map(row => {
+      let town = {
+         [keys[0]]: row[0],
+         [keys[1]]: Number(Number(row[1]).toFixed(2)),
+         [keys[2]]: Number(Number(row[2]).toFixed(2)),
+      }
+
+      result.push(town);
+   });
+
+   return JSON.stringify(result);
 }
 
 // function solve(data) {

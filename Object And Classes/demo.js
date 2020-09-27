@@ -31,3 +31,25 @@
    //Definition
 
    
+// let person = {
+//       firstName: 'Pesho',
+//       lastName: 'Petrov',
+//       age: 30,
+// };
+
+// let propName = 'age';
+// person['age'] = 31;
+// person['grade'] = 6
+// console.log(person[propName]);
+
+
+let person = {
+      firstName: 'Tomy',
+      lastName: 'Kirilot',
+      sex: 'male',
+      age: 31,
+}
+
+Object.keys(person).map(key => {
+      console.log(`${key} <-> ${person[key]}`);
+});
