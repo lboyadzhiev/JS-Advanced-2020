@@ -9,27 +9,42 @@ Output
 The output is a JSON representation of the data for all the heroes you’ve stored. The data must be an array of all the heroes. Check the examples for more info.
 */
 
+
 function solve(input) {
+   let heroes = [];
 
-   let result = [];
-   
    input.forEach(line => {
-      let obj = {};
-      let arr = line.split(' / ');
-      let name, level, items;
-         name = arr[0];
-         level = Number(arr[1]);
-         items = arr[2].split(', ');
+      let[name, level, items] = line.split(' / ');
+      level = Number(level);
+      items = items ? items.split(', ') : [];
 
-         obj['name'] = name;
-         obj['level'] = level;
-         obj['items'] = items;
-
-         result.push(obj);
+      heroes.push({name, level, items});
    });
 
-   return JSON.stringify(result);
+   return JSON.stringify(heroes);
 }
+
+// function solve(input) {
+
+//    let result = [];
+   
+//    input.forEach(line => {
+//       let obj = {};
+//       let arr = line.split(' / ');
+//       let name, level, items;
+//          name = arr[0];
+//          level = Number(arr[1]);
+//          items = arr[2] ? arr.split(', '): [];
+
+//          obj['name'] = name;
+//          obj['level'] = level;
+//          obj['items'] = items;
+
+//          result.push(obj);
+//    });
+
+//    return JSON.stringify(result);
+// }
 
 console.log(
    solve(
