@@ -23,14 +23,14 @@
 // }
 
 // Objects 
-      // Object and Properties
-      // Loop Through Objects
-      // Internal Properties
+// Object and Properties
+// Loop Through Objects
+// Internal Properties
 //JSON
 // Classes
-   //Definition
+//Definition
 
-   
+
 // let person = {
 //       firstName: 'Pesho',
 //       lastName: 'Petrov',
@@ -43,13 +43,48 @@
 // console.log(person[propName]);
 
 
-let person = {
-      firstName: 'Tomy',
-      lastName: 'Kirilot',
-      sex: 'male',
-      age: 31,
-}
+// let person = {
+//       firstName: 'Tomy',
+//       lastName: 'Kirilot',
+//       sex: 'male',
+//       age: 31,
+// }
 
-Object.keys(person).map(key => {
-      console.log(`${key} <-> ${person[key]}`);
-});
+// Object.keys(person).map(key => {
+//       console.log(`${key} <-> ${person[key]}`);
+// });
+
+const scores = [90, 30, 20, 75, 85, 95, 0, 55, 60, 40];
+
+
+
+//sum array
+let total = scores.reduce((a, b) => a + b, 0);
+
+//find min and max number
+let minMax = scores.reduce((a, b) => [Math.min(a[0], b), Math.max(a[1], b)], [100, 0]);
+
+
+//Object from objects
+let employees = [
+      {
+            name: "Pesho",
+            position: "Promenliva",
+            salary: 100000
+      },
+      {
+            name: "Teo",
+            position: "Lecturer",
+            salary: 1000
+      },
+      {
+            name: "Georgi",
+            position: "Lecturer",
+            salary: 1000
+      }
+]
+
+let obj = employees.reduce(function (a, b) {
+      return { ...a, [b.name]: b }
+}, {});
+console.log(obj);

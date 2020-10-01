@@ -30,7 +30,9 @@ function solve(input) {
 
 console.log(
    solve(
-      [`[{"Name":"Pesho <div>-a","Age":20,"City":"Sofia"},
-{"Name":"Gosho","Age":18,"City":"Plovdiv"},{"Name":"Angel","Age":18,"City":"Veliko Tarnovo"}]`]
+      [
+         `[{"Name":"Pesho <div>-a","Age":20,"City":"Sofia"},
+{"Name":"Gosho","Age":18,"City":"Plovdiv"},{"Name":"Angel","Age":18,"City":"Veliko Tarnovo"}]`
+      ]
    )
 )
