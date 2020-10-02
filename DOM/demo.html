@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Intro do DOM</title>
+</head>
+<body>
+   <h1>Instruction to DOM</h1>
+   <ul>
+      <li id="methods">DOM Methods example</li>
+      <li>DOM Properties example</li>
+   </ul>
+
+   <script>
+      //get element by tag name
+      let h1Element = document.getElementsByTagName('h1')[0];
+      h1Element.innerHTML += `, let's start!`;
+
+      //get element by id
+      let methods = document.getElementById('methods');
+      methods.innerHTML += ', Good Luck';
+
+   </script>
+</body>
+</html>
