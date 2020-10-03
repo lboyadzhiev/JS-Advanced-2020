@@ -46,6 +46,31 @@ Creating a new DOM element
 
       The above code creates a new elements. But these elements don't exist anywhere except as values insie variables.
 
+Properties vs. Attributes
+   Attributes are difined by HTML. Properties are defined by DOM
+
+   Attributes initialize DOM properties
+      Property values can change
+      Attributes values can't
+   
+   The HTML attributes and the DOM property are not the same thing, even when they have the same name
+
+DOM Properties
+   "textContent" - reads and writes text
+   "innerHTML" - returns and writes the HTML of a given element
+   "value" - gets and sets value
+
+HTML Attributes and Methonds
+   "getAttribute()" - returns the value of attributes of specified HTML element,
+   "setAttribute()" - sets the value of an attribute on the specified HTML element,
+   "removeAttribute()" - removes the attributes with the specified name from an HTML element,
+   "hasAttribute()" - mothod return true if the specified attribute exists, otherwise it returns false,
+   "classList" - is a read - only it returns a collection of the class attributes of specified element
+      classList Methods
+         "add()" - Adds the specified class values "classList.add()",
+         "remove()" - Remove the specified class values "classList.remove()",
+
+
 */
 
 
