@@ -34,6 +34,7 @@ function solve(input) {
       }
    });
 
+
    Object.keys(finalObj).map(key => {
       console.log(`${key} => ${finalObj[key]}`)
    })
