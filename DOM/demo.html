@@ -7,9 +7,9 @@
 </head>
 <body>
    <h1>Instruction to DOM</h1>
-   <ul>
-      <li id="methods">DOM Methods example</li>
-      <li>DOM Properties example</li>
+   <ul id="parrent">
+      <li id="methods" class="list-items" data-name="Lucho">DOM Methods example</li>
+      <li class="list-items">DOM Properties example</li>
    </ul>
 
    <script>
@@ -20,6 +20,46 @@
       //get element by id
       let methods = document.getElementById('methods');
       methods.innerHTML += ', Good Luck';
+
+      //change attribute
+      methods.setAttribute('data-name', 'Pesho');
+      console.log(methods.attributes);
+
+      //style
+      methods.style.backgroundColor = 'pink';
+      methods.style.color = 'white';
+
+
+      //get element my class name
+      let properties = document.getElementsByClassName('list-items')[0];
+      properties.innerHTML += ' so far, so good!';
+
+      //get element by query selector 
+      let listElement = document.querySelector('.propertie');
+      
+      //add HTML element
+      let ulElement = document.querySelector('ul');
+      ulElement.innerHTML += '<li>New added list</li>'
+
+      //removeChild
+      let parrent = document.querySelector('#parrent');
+      let newLiElement = document.createElement('li');
+      newLiElement.textContent += 'Just added!'
+      console.log(newLiElement);
+      let child = document.getElementById('methods');
+      
+      parrent.removeChild(child); //still exists in the memory
+      child.innerHTML += 'Was Deleted!'
+
+      //appendChild
+      // parrent.appendChild(child);
+
+      //replaceChild
+      let oldChild = document.getElementsByClassName('list-items')[0];
+      parrent.replaceChild(child, oldChild);
+
+      //document. Write
+      document.write('Pisha kakvoto si iskam na celira document!')
 
    </script>
 </body>
