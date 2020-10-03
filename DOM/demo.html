@@ -59,7 +59,32 @@
       parrent.replaceChild(child, oldChild);
 
       //document. Write
-      document.write('Pisha kakvoto si iskam na celira document!')
+      document.write('Pisha kakvoto si iskam na celira document!');
+
+      //Create new 
+      let parrentElement = document.querySelector('ul');
+      let liElement = document.querySelector('li');
+      newLiElement.textContent = 'newly created list item';
+      parrentElement.appendChild(newLiElement);
+
+      let list = document.createElement("ul");
+      let firstLi = document.createElement("li");
+
+      firstLi.textContent = 'Lucho';
+      list.appendChild(firstLi);
+      let secondLi = document.createElement('li');
+      secondLi.innerHTML = '<b>Sevda</b>';
+      list.appendChild(secondLi);
+
+      document.body.appendChild(list);
+
+      //clone
+      newLiElement = liElement.cloneNode(true);
+      parrentElement.appendChild(newLiElement);
+
+      //delete
+      liElement.remove();
+      newLiElement.remove();
 
    </script>
 </body>

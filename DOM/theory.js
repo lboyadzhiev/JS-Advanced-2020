@@ -44,7 +44,7 @@ Creating a new DOM element
       let li = document.getElementById("my-list");
       let newLli = li.cloneNode(true);
 
-      The above code creates a new elements. But these elements don't exist anywhere except as values insie variables
+      The above code creates a new elements. But these elements don't exist anywhere except as values insie variables.
 
 */
 
