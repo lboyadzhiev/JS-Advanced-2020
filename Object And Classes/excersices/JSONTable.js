@@ -9,9 +9,32 @@ The output is the HTML code of a table which holds the data exactly as explained
 */
 
 function solve(input) {
-   let result = '<table>';
+   let output = '<table>\n';
+   let employees = [];
+
+   input.forEach(el => {
+      employees.push(JSON.parse(el));
+   });
    
-   return first;
+   output += arrayAsTable(employees) + '</table>';
+
+   return output;
+
+   function arrayAsTable(arr) {
+      let result = '';
+
+      arr.forEach(el => {
+         result += `\t<tr>\n`;
+
+         Object.values(el).forEach(val => {
+            result += `\t\t<td>${val}</td>\n`
+         })
+
+         result += `\t</tr>\n`
+      });
+
+      return result;
+   }
 }
 
 console.log(solve(
