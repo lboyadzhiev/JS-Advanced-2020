@@ -25,6 +25,7 @@ DOM Manipulations
    We can create, append and remove HTML elements dynamically
       "removeChild()"
       "appendChild()"
+      "prepend()"
       "replaceChild()"
       "document.write()"
 
@@ -70,7 +71,18 @@ HTML Attributes and Methonds
          "add()" - Adds the specified class values "classList.add()",
          "remove()" - Remove the specified class values "classList.remove()",
 
+Parents and Child Elements
+   Every DOM Elements has a parent
+      Parents can be accessed by keywords ".parent" or ".parentNode".
+      Children can be accessed by keyword ".children"
+      "nextElementSibling" - returns the nex node at the same node tree level
+      "previousElementSibling" - returns the previous node at the same node tree level
 
+Handling DOM Events
+   Events are actions or occurrences
+   They allow JS to register different event handlers on elements
+   Events are normally used in combination with functions
+   The functions will not be executed before the event occurs
 */
 
 

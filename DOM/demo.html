@@ -86,7 +86,13 @@
       liElement.remove();
       newLiElement.remove();
 
-      
+      //parentElement
+      let liEl = document.querySelectorAll('.list-items')[1];
+      liEl.parentElement.appendChild(liEl.cloneNode(true));
+
+      //children
+      let ulEl = document.getElementsByTagName(ul)[0];
+      console.log(ulEl.children)
 
    </script>
 </body>
