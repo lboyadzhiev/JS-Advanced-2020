@@ -12,33 +12,56 @@ The output is the produced bottles. The bottles are to be printed in order of ob
 */
 
 function solve(input) {
-   let outputObj = {};
-   let finalObj = {};
-   input.forEach(line => {
-      let [key, value] = line.split(' => ');
-      if (!outputObj.hasOwnProperty(key)) {
-         outputObj[key] = Number(value);
-      } else {
-         outputObj[key] += Number(value);
-      }
+   let juices = {};
+   let bottles = {};
 
-      if (outputObj[key] >= 1000) {
-         if (!finalObj.hasOwnProperty(key)) {
-            finalObj[key] = Math.floor(outputObj[key] / 1000);
-            outputObj[key] = Math.floor(outputObj[key] % 1000);
-         } else {
-            finalObj[key] += Math.floor(outputObj[key] / 1000);
-            outputObj[key] -= Math.floor(outputObj[key] % 1000);
+   input
+      .map(x => {
+         let [juice, quantity] = x.split(' => ');
+         quantity = Number(quantity);
+         if (!juices.hasOwnProperty(juice)) {
+            juices[juice] = 0;
          }
+         juices[juice] += quantity;
 
-      }
-   });
+         if(juices[juice] >= 1000) {
+            bottles[juice] = Math.floor(juices[juice] / 1000)
+         }
+      })
 
-
-   Object.keys(finalObj).map(key => {
-      console.log(`${key} => ${finalObj[key]}`)
+   Object.keys(bottles).map(x => {
+      console.log(`${x} => ${bottles[x]}`)
    })
 }
+
+// function solve(input) {
+//    let outputObj = {};
+//    let finalObj = {};
+//    input.forEach(line => {
+//       let [key, value] = line.split(' => ');
+//       if (!outputObj.hasOwnProperty(key)) {
+//          outputObj[key] = Number(value);
+//       } else {
+//          outputObj[key] += Number(value);
+//       }
+
+//       if (outputObj[key] >= 1000) {
+//          if (!finalObj.hasOwnProperty(key)) {
+//             finalObj[key] = Math.floor(outputObj[key] / 1000);
+//             outputObj[key] = Math.floor(outputObj[key] % 1000);
+//          } else {
+//             finalObj[key] += Math.floor(outputObj[key] / 1000);
+//             outputObj[key] -= Math.floor(outputObj[key] % 1000);
+//          }
+
+//       }
+//    });
+
+
+//    Object.keys(finalObj).map(key => {
+//       console.log(`${key} => ${finalObj[key]}`)
+//    })
+// }
 
 solve(
    [
