@@ -10,7 +10,6 @@ Hints
 function toggle() {
     let btn = document.getElementsByClassName('button')[0];
     let divElement = document.querySelector('#extra');
-
     let content = btn.textContent;
 
     if(content === 'More') {
