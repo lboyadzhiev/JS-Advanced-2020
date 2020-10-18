@@ -4,17 +4,23 @@ Your task is to take values from input fields with ids "newItemText" and "newIte
 
 */
 
+
 function addItem() {
-    let text = document.getElementById('newItemText');
-    let data = document.getElementById('newItemValue');
 
-    let select = document.getElementById('menu');
-    let option = document.createElement('option');
-    // let option = `<option value = ${data.value}>${text.value}</option>`;
-    option.value = data.value;
-    option.innerText = text.value;
+    //read references 
+    const text = document.querySelector('#newItemText').value;
+    const value = document.querySelector('#newItemValue').value;
 
-    select.appendChild(option);
-    text.value = '';
-    data.value = '';
+    //create new HTML element
+    const option = document.createElement('option');
+    option.value = value;
+    option.textContent = text;
+
+    //append the new element 
+    
+    document.querySelector('#menu').appendChild(option);
+
+    // null the fields
+    document.querySelector('#newItemText').value = '';
+    document.querySelector('#newItemValue').value = '';
 }
