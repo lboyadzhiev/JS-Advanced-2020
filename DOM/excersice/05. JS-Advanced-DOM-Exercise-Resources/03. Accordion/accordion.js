@@ -8,15 +8,15 @@ Hints
     • Along with all of this, we should change the text content of the button to [Less]/[More].
 */
 function toggle() {
-    let btn = document.getElementsByClassName('button')[0];
-    let divElement = document.querySelector('#extra');
-    let content = btn.textContent;
-
-    if(content === 'More') {
-        content = btn.innerHTML = 'Less';
-        divElement.style.display = 'block';
+    // намираме референцията 
+    let div = document.querySelector('#extra');
+    let btn = document.querySelectorAll('.button')[0];
+    // намираме свойството 
+    if(div.style.display === 'block') {
+        btn.textContent = 'More';
+        div.style.display = 'none';
     } else {
-        content = btn.innerHTML = 'More';
-        divElement.style.display = 'none';
+        btn.textContent = 'Less';
+        div.style.display = 'block';
     }
 }
