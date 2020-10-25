@@ -9,35 +9,28 @@ Output
 Return a sorted array of all the tickets that where registered.
 */
 
-function solve(params, criteria) {
+
+
+function solve(tickets, criteria) {
+
    class Ticket {
-      constructor(destination, price, status) {
-      this.destination = destination;
-      this.price = price;
-      this.status = status;
+      constructor(descriptor) {
+         let [destination, price, status] = descriptor.split('|');
+         this.destination = destination;
+         this.price = Number(price);
+         this.status = status;
       }
-   }
+   } 
 
-   let ticketsArr = [];
-   params.map(x => {
-      let [destination, price, status] = x.split('|');
-      price = Number(price);
-      let ticketObj = new Ticket(destination, price, status);
+   const comparator = {
+      destination: (a, b) => a.destination.localeCompare(b.destination),
+      price: (a, b) => a - b,
+      status: (a, b) => a.status.localeCompare(b.status)
+   };
 
-      ticketsArr.push(ticketObj);
-   })
-
-   let sorted;
-   if(criteria === 'destination') {
-      sorted = ticketsArr.sort((a, b) => a.destination.localeCompare(b.destination));
-   } else if (criteria === 'price') {
-      sorted = ticketsArr.sort((a, b) => a.price - b.price);
-   } else {
-      sorted = ticketsArr.sort((a, b) => a.status.localeCompare(b.status));
-   }
-
-   return sorted;
+   return tickets.map(t => new Ticket(t)).sort(comparator[criteria]);
 }
+
 
 console.log(solve(
    [
