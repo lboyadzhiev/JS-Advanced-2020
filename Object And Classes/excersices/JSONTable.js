@@ -9,33 +9,24 @@ The output is the HTML code of a table which holds the data exactly as explained
 */
 
 function solve(input) {
-   let output = '<table>\n';
-   let employees = [];
+   const rows = [];
+   // обходим входа
+   for (let line of input) {
+   // JSON parse 
+      const person = JSON.parse(line);
 
-   input.forEach(el => {
-      employees.push(JSON.parse(el));
-   });
-   
-   output += arrayAsTable(employees) + '</table>';
-
-   return output;
-
-   function arrayAsTable(arr) {
-      let result = '';
-
-      arr.forEach(el => {
-         result += `\t<tr>\n`;
-
-         Object.values(el).forEach(val => {
-            result += `\t\t<td>${val}</td>\n`
-         })
-
-         result += `\t</tr>\n`
-      });
-
-      return result;
+   // съставим съдържащ  html ред със стойностите от обекта
+      rows.push(`<tr><td>${person.name}</td><td>${person.position}</td><td>${person.salary}</td></tr>`)
    }
+  
+   // отпечатваме началото на таблицата 
+   // отпечакваме резултата 
+   console.log(rows.join('\n'));
+   // отпечатваме края на таблицата 
+
+
 }
+
 
 console.log(solve(
    [

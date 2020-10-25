@@ -10,6 +10,7 @@ The output is a JSON representation of the data for all the heroes you’ve stor
 */
 
 
+
 function solve(input) {
    let heroes = [];
 
