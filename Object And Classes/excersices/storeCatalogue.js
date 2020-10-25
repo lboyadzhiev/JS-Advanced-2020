@@ -10,31 +10,27 @@ As output you must print all the products in a specified format. They must be or
 */
 
 function solve(input) {
-   let catalogue = {};
+   const catalog = {};
 
-   input.map(x => {
-      let [name, price] = x.split(' : ');
+   for(let line of input) {
+      let[name, price] = line.split(' : ');
       price = Number(price);
-      let initial = name[0];
-
-      if (!catalogue.hasOwnProperty(initial)) {
-         catalogue[initial] = {};
+      const letter = name[0];
+      if(catalog.hasOwnProperty(letter) === false) {
+         catalog[letter] = {};
       }
+      catalog[letter][name] = price;
+   }
+   
+   let sortedKeys = Object.keys(catalog).sort((a, b) => a.localeCompare(b));
 
-      let products = catalogue[initial];
-      products[name] = price;
-   })
-
-   Object.keys(catalogue)
-      .sort((a, b) => a.localeCompare(b))
-      .map(x => {
-         console.log(x);
-         Object.keys(catalogue[x])
-            .sort((a, b) => a.localeCompare(b))
-            .map(y => {
-               console.log(` ${y}: ${catalogue[x][y]}`)
-            })
-      });
+   for(let key of sortedKeys) {
+      console.log(key);
+      let sortedProducts = Object.keys(catalog[key]).sort((a, b) => a.localeCompare(b));
+      for(let product of sortedProducts) {
+         console.log(`  ${product}: ${catalog[key][product]}`)
+      }
+   }
 }
 
 solve(
