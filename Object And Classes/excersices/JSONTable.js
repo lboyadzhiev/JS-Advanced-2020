@@ -12,19 +12,29 @@ function solve(input) {
    const rows = [];
    // обходим входа
    for (let line of input) {
-   // JSON parse 
+      // JSON parse 
       const person = JSON.parse(line);
 
-   // съставим съдържащ  html ред със стойностите от обекта
-      rows.push(`<tr><td>${person.name}</td><td>${person.position}</td><td>${person.salary}</td></tr>`)
+      // съставим съдържащ  html ред със стойностите от обекта
+      rows.push(createRow(person));
    }
-  
+
    // отпечатваме началото на таблицата 
+   console.log('<table>');
    // отпечакваме резултата 
    console.log(rows.join('\n'));
-   // отпечатваме края на таблицата 
+   // отпечатваме края на таблицата
+   console.log('</table>')
 
-
+   function createRow(person) {
+      return [
+         `\t<tr>`,
+         `\t\t<td>${person.name}</td>`,
+         `\t\t<td>${person.position}</td>`,
+         `\t\t<td>${person.salary}</td>`,
+         `\t</tr>`
+      ].join('\n');
+   }
 }
 
 
