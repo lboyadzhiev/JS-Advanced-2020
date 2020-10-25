@@ -18,37 +18,44 @@ As output you need to print all of the elements, ordered exactly in the way spec
  ...”
 */
 
+
 function solve(input) {
-   let components = {};
+   const catalogue = {};
+// Обхождаме входа
+   for(let line of input) {
 
-   input.map(x => {
-      let [system, component, subcomponent] = x.split(' | ');
+// Отделяме име на система, компоненти, подкомпоненти
+      let[system, compoment, sub] = line.split(' | ');
 
-      if (!components.hasOwnProperty(system)) {
-         components[system] = {};
+// попълваме каталога
+      if(catalogue.hasOwnProperty(system) === false) {
+         catalogue[system] = {};
       }
-      let info = components[system];
 
-      if (!info.hasOwnProperty(component)) {
-         info[component] = [];
+      if(catalogue[system].hasOwnProperty(compoment) === false) {
+         catalogue[system][compoment] = [];
       }
-      info[component].push(subcomponent);
-   });
 
-   Object.entries(components).sort((a, b) => {
-      return Object.entries(b[1]).length - Object.entries(a[1]).length || a[0].localeCompare(b[0])
-   }).map(x => {
-      console.log(x[0]);
-      Object.entries(x[1]).sort((a, b) => {
-         return b[1].length - a[1].length;
-      }).map(y => {
-         console.log(`|||${y[0]}`);
-         y[1].map(el => {
-            console.log(`||||||${el}`);
+      catalogue[system][compoment].push(sub);
+   }
+
+   // сортираме
+   Object.entries(catalogue).sort((a, b) => {
+      return Object.keys(b[1]).length - Object.keys(a[1]).length || a[0].localeCompare(b[0]);
+   }).forEach(([system, compoment]) => {
+      console.log(system);
+      Object.entries(compoment)
+         .sort((a, b) => b[1].length - a[1].length)
+         .forEach(([compName, sub]) => {
+            console.log(`|||${compName}`);
+            sub.forEach(s => {
+               console.log('||||||' + s);
+            })
          })
-      })
-   })
+   });
 }
+
+
 
 solve(
    [
