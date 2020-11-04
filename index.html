@@ -6,6 +6,25 @@
    <title>Document</title>
 </head>
 <body>
-   <script src="/Objects/lab/countWords.js"></script>
+   <div class="content">
+      myDiv
+      <p id='toRemove'>This come as HTML file</p>
+   </div>
+   <input type="text"/>
+
+
+   <script>
+      let myDiv = document.getElementsByTagName('div')[0];
+      let p = document.createElement('p');
+      p.textContent = 'this come from js file';
+      myDiv.appendChild(p);
+
+      let pToRemove = document.getElementById('toRemove');
+      pToRemove.remove();
+
+      let inp = document.getElementsByTagName('input')[0];
+      inp.setAttribute('type', 'date');
+
+   </script>
 </body>
 </html>
