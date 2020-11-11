@@ -21,19 +21,19 @@ function attachEventsListeners() {
     const minutesEl = document.getElementById('minutes');
     const secondsEl = document.getElementById('seconds');
 
-    document.getElementById('daysBtn').addEventListener('click', onClick);
-    document.getElementById('hoursBtn').addEventListener('click', onClick);
-    document.getElementById('minutesBtn').addEventListener('click', onClick);
-    document.getElementById('secondsBtn').addEventListener('click', onClick);
+    document.querySelector('main').addEventListener('click', onClick);
+
 
     function onClick(e) {
-        const el = e.target.parentNode.querySelector('input[type="text"]');
-        const value = Number(el.value);
-        console.log(value);
-        const id = el.id;
-        const readyValues = convert(value, id);
-        console.log(readyValues);
-        display(readyValues);
+        if (e.target.nodeName === 'INPUT' && e.target.type === 'button') {
+            const el = e.target.parentNode.querySelector('input[type="text"]');
+            const value = Number(el.value);
+            console.log(value);
+            const id = el.id;
+            const readyValues = convert(value, id);
+            console.log(readyValues);
+            display(readyValues);
+        }
     }
 
     function display(values) {

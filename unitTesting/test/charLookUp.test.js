@@ -59,7 +59,7 @@ describe('lookUpChar', function () {
         it('should return n', () => {
             expect(lookupChar('string', 4)).to.equal('n');
         });
-    });
+    });``
 });
 
 

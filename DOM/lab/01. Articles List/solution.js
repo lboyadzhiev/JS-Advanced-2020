@@ -7,27 +7,25 @@ In this aspect, JavaScript is very different from another language called Java.
 */
 
 function createArticle() {
-	let titleElement = document.getElementById('createTitle');
-	let contentElement = document.getElementById('createContent');
+	let titleEl = document.getElementById('createTitle');
+	let contentEl = document.getElementById('createContent');
+	let articles = document.getElementById('articles');
 
-	if (titleElement.value && contentElement.value) {
-		let articleElement = document.createElement('article');
+	if (titleEl.value && contentEl.value) {
+		let article = document.createElement('article');
 
-		let headingElement = document.createElement('h3');
-		headingElement.innerHTML = titleElement.value;
-		titleElement.value = '';
+		let headingEl = document.createElement('h3');
+		headingEl.textContent = titleEl.value;
+		titleEl.value = '';
 
-		let textElement = document.createElement('p');
-		textElement.innerHTML = contentElement.value;
-		contentElement.value = '';
+		let paragraphEl = document.createElement('p');
+		paragraphEl.textContent = contentEl.value;
+		contentEl.value = '';
 
+		article.appendChild(headingEl);
+		article.appendChild(paragraphEl);
 
-		articleElement.appendChild(headingElement);
-		articleElement.appendChild(textElement);
-
-
-		let sectionElement = document.getElementById('articles');
-		sectionElement.appendChild(articleElement);
-
+		articles.appendChild(article);
 	}
+
 }
