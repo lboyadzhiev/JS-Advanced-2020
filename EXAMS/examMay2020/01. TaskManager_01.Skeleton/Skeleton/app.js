@@ -3,7 +3,7 @@ function solve() {
     const sections = document.querySelectorAll('section');
     const openDiv = sections.item(1).querySelectorAll('div').item(1);
     const progressDiv = sections.item(2).querySelectorAll('div').item(1);
-    const finishedDiv = sections.item(3).querySelectorAll('div').item(1);
+    const completeDiv = sections.item(3).querySelectorAll('div').item(1);
 
     const inputTask = document.querySelector('#task');
     const inputDesc = document.querySelector('#description');
@@ -24,14 +24,14 @@ function solve() {
         if (taskName.length > 0 && descName.length > 0 && dataName.length > 0) {
             // създаваме елементите
             
-            const startBtn = el('button', 'Start', { clasName: 'green' });
-            const finishBtn = el('button', 'Finish', { clansName: 'orange' });
-            const delteBtn = el('button', 'Delete', { calName: 'red' });
+            const startBtn = el('button', 'Start', { className: 'green' });
+            const finishBtn = el('button', 'Finish', { className: 'orange' });
+            const delteBtn = el('button', 'Delete', { className: 'red' });
 
             const btnDiv = el('div', [
                 startBtn,
                 delteBtn
-            ]);
+            ], { className: 'flex'});
 
             const task = el('article', [
                 el('h3', taskName),
@@ -39,10 +39,34 @@ function solve() {
                 el('p', `Due Date: ${dataName}`),
                 btnDiv
             ]);
+
             // закачаме функционалност
-            
+            startBtn.addEventListener('click', () => {
+                progressDiv.appendChild(task);
+                startBtn.remove();
+                btnDiv.appendChild(finishBtn);
+            });
+
+            finishBtn.addEventListener('click', () => {
+                completeDiv.appendChild(task);
+                btnDiv.remove();
+            });
+
+            delteBtn.addEventListener('click', () => {
+                task.remove();
+            })
+
+
+
             // добавяме елемента в DOM дървото
+            openDiv.appendChild(task);
+
+            
         }
+
+        inputTask.value = '';
+        inputDesc.value = '';
+        inputDate.value = '';
     }
 
     function el(type, content, attributes) {
