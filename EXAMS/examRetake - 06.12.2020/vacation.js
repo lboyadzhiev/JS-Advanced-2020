@@ -1,16 +1,30 @@
 class Vacation {
    constructor(organizer, destination, budget) {
-      this.organizer = organizer,
-         this.destination = destination,
-         this.budget = Number(budget),
-         this.kids = {}
+      this.organizer = organizer;
+      this.destination = destination;
+      this.budget = Number(budget);
+      this.kids = {}
    }
 
    registerChild(name, grade, budget) {
-      
-   }
 
-   removeChild(name, grade) {
+      const kidArr = [];
+      const kid = [`${name}-${budget}`];
+      grade = grade;
+
+      kidArr.push(kid);
+
+      if (budget >= this.budget) {
+         if (!this.kids[grade] !== kidArr) {
+            this.kids[grade] = kidArr;
+            return this.kids[grade];
+         } else {
+            return `${name} is already in the list for this ${this.destination} vacation`;
+         }
+
+      } else {
+         return `${name}'s money is not enough to go on vacation to ${this.destination}.`
+      }
 
    }
 }
