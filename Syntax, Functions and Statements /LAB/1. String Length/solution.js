@@ -6,4 +6,6 @@ function solution(str1, str2, str3) {
    console.log(average);
 }
 
+
+
 solution('chocolate', 'ice cream', 'cake');
