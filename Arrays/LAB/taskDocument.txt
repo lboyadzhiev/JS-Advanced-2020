@@ -1,0 +1,48 @@
+    1. Sum First Last
+Write a function that calculates and prints the sum of the first and the last elements in an array.
+The input comes as array of string elements holding numbers.
+The output is the return value of your function.
+
+    2. Even Position Element
+Write a function that finds the elements at even positions in an array.
+The input comes as array of string elements.
+The output is the return value of your function. Collect all elements in a string, separated by space.
+
+    3. Negative / Positive Numbers
+Write a JS function that processes the elements in an array one by one and produces a new array. Prepend each negative element at the front of the result and append each positive (or 0) element at the end of the result.
+The input comes as array of number elements.
+The output is printed on the console, each element on a new line.
+
+    4. Last K Numbers Sequence
+You are given two integers n and k. Write a JS function that generates and prints the following sequence:
+    • The first element is 1
+    • Every following element equals the sum of the previous k elements
+    • The length of the sequence is n elements
+The input comes as two number arguments. The first element represents the number n, and the second – the number k.
+The output is printed on the console on a single line, separated by space.
+
+    5. Process Odd Numbers
+You are given an array of numbers. Write a JS function that prints the elements at odd positions from the array, doubled and in reverse order.
+The input comes as array of number elements.
+The output is printed on the console on a single line, separated by space.
+
+    6. Smallest Two Numbers
+Write a function that prints the two smallest elements from an array of numbers.
+The input comes as array of number elements.
+The output is printed on the console on a single line, separated by space.
+
+    7. Biggest Element
+Write a function that finds the biggest element inside a matrix.
+The input comes as array of arrays, containing number elements (2D matrix of numbers).
+The output is the return value of your function. Find the biggest element and return it.
+
+    8. Diagonal Sums
+A square matrix of numbers comes as an array of strings, each string holding numbers (space separated). Write a function that finds the sum at the main and at the secondary diagonals.
+The input comes as array of arrays, containing number elements (2D matrix of numbers).
+The output is printed on the console, on a single line separated by space. First print the sum at the main diagonal, then the sum at the secondary diagonal.
+
+    9. Equal Neighbors
+Write a function that finds the number of equal neighbor pairs inside a matrix of variable size and type (numbers or strings).
+The input comes as array of arrays, containing string elements (2D matrix of strings).
+The output is return value of your function. Save the number of equal pairs you find and return it.
+
