@@ -1,10 +1,21 @@
 function solve(...params) {
    let operator = params.pop();
 
+   const operations = {
+      '+': (a, b) => a + b,
+      '-': (a, b) => a - b,
+      '*': (a, b) => a * b,
+      '/': (a, b) => a / b,
+      '%': (a, b) => a % b,
+      '**': (a, b) => a ** b
+   };
+
    return params
       .reduce(
-         (a, b) => eval(`${a}${operator}${b}`),
-         params.shift()
+         (a, b) => operations[operator](
+            a, Number(b)
+         ),
+         Number(params.shift())
       );
 }
 
